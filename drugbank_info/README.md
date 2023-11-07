@@ -10,6 +10,6 @@ External info extracted from drugbank, downloaded as an XML file
 
 #
 
-This process was done to try and map the given compounds to their targets/pathways to augment the inputs to the trained model. *However as not all of the 144 compounds could be found in this database, alternative methods were explored in the interest of time and efficiency.*
+This process was done to try and map the given compounds to their targets/pathways to augment the inputs to the trained model. *However as not all of the 144 compounds could be found in this database, since DrugBank only contains approved drugs, alternative methods were explored in the interest of time and efficiency.*
 
 Potential use cases of this database could be to train a separate model to predict targets/pathways given SMILES sequences.
