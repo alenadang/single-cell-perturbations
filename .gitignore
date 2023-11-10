@@ -161,3 +161,5 @@ cython_debug/
 
 # alena's local files
 /kaggledata
+# folder containing DeepPurpose pre-trained models
+/peptideInfo/save_folder
