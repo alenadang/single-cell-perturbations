@@ -156,7 +156,7 @@ def build_model(hp):
         model.add(
             layers.Dense(
                 # Tune number of units separately.
-                units=hp.Int(f"units_{i}", min_value=200, max_value=1000, step=200),
+                units=hp.Int(f"units_{i}", min_value=200, max_value=10000, step=200),
                 activation=hp.Choice("activation", ["relu", "tanh", "linear"]),
             )
         )
