@@ -1,9 +1,6 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# # model 1
-# one-hot encoded cell_type + MPNN_CNN_BindingDB affinities
-
 # In[1]:
 
 
@@ -25,7 +22,6 @@ from auxFunctions import calculate_mae_and_mrrmse, mean_rowwise_rmse_loss, custo
 
 # ## pre-process data
 # one-hot encode cell type
-# <br>map sm_name to affinities_MPNN_CNN_BindingDB.csv
 
 # In[2]:
 
@@ -156,7 +152,7 @@ def build_model(hp):
         model.add(
             layers.Dense(
                 # Tune number of units separately.
-                units=hp.Int(f"units_{i}", min_value=200, max_value=1000, step=200),
+                units=hp.Int(f"units_{i}", min_value=200, max_value=10000, step=200),
                 activation=hp.Choice("activation", ["relu", "tanh", "linear"]),
             )
         )
@@ -245,8 +241,8 @@ model_tuned.fit(x=x_all, y=y_all, epochs=30)
 # In[ ]:
 
 
-model_tuned.save("model_4")
-model_tuned.save_weights("model_4_weights.h5")
+model_tuned.save("model_5")
+model_tuned.save_weights("model_5_weights.h5")
 
 calculate_mae_and_mrrmse(model=model_tuned, data=x_test, y_true=y_test)
 

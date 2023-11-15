@@ -2,7 +2,12 @@ Some models were tuned using Keras Tuner with the defined search space indicated
 
 Files required for tuning and training are in `Models/Files_Required`. Include files in same directory when retraining models. Due to the stochastic tuning of Keras Tuner, different hyperparameters may be achieved with each tuning of the model.
 
+When jupyter notebook and python files are present with the same names, python files take precedence.
+
+#
+
 `compareAffinities.ipynb` was used to see if there were any differences in accuracy of models when different encoders (from DeepPurpose) were used to predict the protein binding affinities. Architecture from Model 5, was used to train the models.
+
 
 #
 
@@ -25,7 +30,7 @@ Model 4: Tuned with Keras Tuner. Retrained with loss function Mean Absolute Erro
 
 Model 5: Tuned with Keras Tuner. Retrained with loss function Mean Absolute Error.
 - 3-5 layers
-- 200-1000 nodes
+- 200-10000 nodes
 - relu/tanh/linear activation functions
 - optional dropout layer (of dropout rate 0.25)
 
