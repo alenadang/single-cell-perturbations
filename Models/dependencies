@@ -1,0 +1,10 @@
+polars
+numpy
+pandas
+tensorflow
+matplotlib
+seaborn
+sklearn
+pyarrow
+keras_tuner
+keras
