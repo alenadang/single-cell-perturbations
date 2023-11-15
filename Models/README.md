@@ -2,6 +2,8 @@ Some models were tuned using Keras Tuner with the defined search space indicated
 
 Files required for tuning and training are in `Models/Files_Required`. Include files in same directory when retraining models. Due to the stochastic tuning of Keras Tuner, different hyperparameters may be achieved with each tuning of the model.
 
+`compareAffinities.ipynb` was used to see if there were any differences in accuracy of models when different encoders (from DeepPurpose) were used to predict the protein binding affinities. Architecture from Model 5, was used to train the models.
+
 #
 
 Model 0: One-Hot Encoded Compounds
