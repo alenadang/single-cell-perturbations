@@ -163,3 +163,4 @@ cython_debug/
 /kaggledata
 # folder containing DeepPurpose pre-trained models
 /peptideInfo/save_folder
+/peptideInfo/result
