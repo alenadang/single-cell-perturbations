@@ -1,0 +1,58 @@
+---
+title: "GO Analysis of Genes"
+author: "Group Guzhen"
+date: "20/11/2023"
+output: html_document
+---
+
+```{r}
+library(tidyverse)
+library(enrichR)
+```
+
+# load data
+
+```{r}
+peptides <- read.csv('peptides2.csv')
+de_train <- read.csv('de_train_df.csv')
+```
+
+```{r}
+# 18211 unique genes
+gene_names <- colnames(de_train)[6:length(colnames(de_train))]
+
+# 12766 mapped genes
+mapped <- peptides[, 'location']
+```
+
+```{r}
+# 5445 unmapped genes
+unmapped <- setdiff(gene_names, mapped)
+
+# change '-' back to '.'
+mapped2 <- gsub('-', '\\.', mapped)
+unmapped <- setdiff(unmapped, mapped2)
+```
+
+# GO analysis
+
+```{r}
+dbs <- c("KEGG_2021_Human", "GO_Biological_Process_2023", "GO_Molecular_Function_2023", "GO_Cellular_Component_2023")
+```
+
+```{r}
+unmappedGO <- enrichr(unmapped, databases = dbs)
+mappedGO <- enrichr(mapped, databases = dbs)
+```
+
+```{r}
+plotEnrich(unmappedGO$KEGG_2021_Human)
+plotEnrich(unmappedGO$GO_Biological_Process_2023)
+plotEnrich(unmappedGO$GO_Molecular_Function_2023)
+```
+
+```{r}
+plotEnrich(mappedGO$KEGG_2021_Human)
+plotEnrich(mappedGO$GO_Biological_Process_2023)
+plotEnrich(mappedGO$GO_Molecular_Function_2023)
+```
